@@ -1,6 +1,6 @@
 Feature: Hamming
 
-    @empty @and
+    @hamming @empty @and
     Scenario: Hamming, empty
         Given Hamming
         And gene1 ""
@@ -8,7 +8,7 @@ Feature: Hamming
         When calculate distance
         Then distance is 0
 
-    @same_len @identical @and @short
+    @hamming @same_len @identical @and @short
     Scenario: Hamming, genes same length, identical, short
         Given Hamming
         And gene1 "A"
@@ -16,7 +16,7 @@ Feature: Hamming
         When calculate distance
         Then distance is 0
 
-    @same_len @identical @and @long
+    @hamming @same_len @identical @and @long
     Scenario: Hamming, genes same length, identical, long
         Given Hamming
         And gene1 "GGACTGAAATCTG"
@@ -24,7 +24,7 @@ Feature: Hamming
         When calculate distance
         Then distance is 0
 
-    @same_len @diff @and @short
+    @hamming @same_len @diff @and @short
     Scenario: Hamming, genes same length, different combination, short
         Given Hamming
         And gene1 "G"
@@ -32,7 +32,7 @@ Feature: Hamming
         When calculate distance
         Then distance is 1
 
-    @same_len @diff @and @long
+    @hamming @same_len @diff @and @long
     Scenario: Hamming, genes same length, different combination, long
         Given Hamming
         And gene1 "GGACGGATTCTG"
@@ -40,7 +40,7 @@ Feature: Hamming
         When calculate distance
         Then distance is 9
 
-    @diff_len @string @short @left
+    @hamming @diff_len @string @short @left
     Scenario: Hamming, genes diff length, different combination, long
         Given Hamming string
         '''
@@ -49,7 +49,7 @@ Feature: Hamming
         When calculate distance raises ValueError
         Then ValueError is raised
 
-    @diff_len @string @short @right
+    @hamming @diff_len @string @short @right
     Scenario: Hamming, genes same length, different combination, long
         Given Hamming string
         '''
@@ -58,7 +58,7 @@ Feature: Hamming
         When calculate distance raises ValueError
         Then ValueError is raised
 
-    @diff_len @string @short @empty @left
+    @hamming @diff_len @string @short @empty @left
     Scenario: Hamming, genes same length, different combination, long
         Given Hamming string
         '''
@@ -67,7 +67,7 @@ Feature: Hamming
         When calculate distance raises ValueError
         Then ValueError is raised
 
-    @diff_len @string @short @empty @right
+    @hamming @diff_len @string @short @empty @right
     Scenario: Hamming, genes same length, different combination, long
         Given Hamming string
         '''
@@ -76,7 +76,7 @@ Feature: Hamming
         When calculate distance raises ValueError
         Then ValueError is raised
 
-    @same_len @identical @long
+    @hamming @same_len @identical @long
     Scenario: Hamming, genes same length, identical, long
         Given Hamming string
         '''
